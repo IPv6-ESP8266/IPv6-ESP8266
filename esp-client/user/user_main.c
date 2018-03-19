@@ -104,6 +104,7 @@ void wifi_event_cb(System_Event_t *event) {
             break;
         case EVENT_STAMODE_CONNECTED:
             os_printf("Connected to AP\n");
+            manual_netif_setup();
             user_task();
             break;
         default:
