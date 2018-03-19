@@ -1,0 +1,1 @@
+flags = -Wall -Wextra -Iinclude -I../ESP8266_RTOS_SDK/include
