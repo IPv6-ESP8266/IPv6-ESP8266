@@ -1,0 +1,8 @@
+[package]
+name = "tcp-listener"
+version = "0.1.0"
+authors = ["Ben Stuart <mail@bstuart.de>"]
+
+[dependencies]
+structopt-derive = "0.1.6"
+structopt = "0.1.6"
