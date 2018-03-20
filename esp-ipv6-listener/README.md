@@ -1,5 +1,5 @@
 # Why use this instead of netcat?
-Not all netcat support IPv6 and spares the hassle to find a version that does support it.
+Not all netcat versions support IPv6 and spares the hassle to find a version that does support it.
 
 
 # About
