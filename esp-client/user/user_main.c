@@ -77,44 +77,50 @@ uint32 user_rf_cal_sector_set(void) {
 
 	return rf_cal_sec;
 }
-
 void manual_netif_setup() {
+    // First find our network interface
     struct netif *interface = netif_find("en0"); 
-
+ 
+    // Check if it is up and set it up
     bool is_interface_up = netif_is_up(interface);
-
+ 
     if (!is_interface_up) {
         netif_set_up(interface);
     }
-
+ 
+    // Assign a linklocal address via the mac addresss
     netif_create_ip6_linklocal_address(interface, 0);
 }
-
+ 
+ 
 void wifi_event_cb(System_Event_t *event) {
     if (event == NULL) {
         os_printf("event is null\n");
         return;
     }
     os_printf("event id: %d\n", event->event_id);
-
+ 
+    // Check the id of the event
     switch(event->event_id) {
         case EVENT_STAMODE_GOT_IP:
-            os_printf("Got Ip. Starting user task\n");
-            //user_task();
+            os_printf("Got an ipv4 address");
             break;
         case EVENT_STAMODE_CONNECTED:
             os_printf("Connected to AP\n");
+
+            // After connection to the access point manually set the address
             manual_netif_setup();
+ 
+            // Start the user task
             user_task();
+
             break;
         default:
-            os_printf("Did not receive an ip\n");
+            os_printf("Did not receive an ip address\n");
             break;
     }
 }
 
-const char *SSID = "wireless-n";
-const char *PASSWORD = "esp8266pw";
 
 /******************************************************************************
  * FunctionName : user_init
@@ -123,6 +129,9 @@ const char *PASSWORD = "esp8266pw";
  * Returns      : none
  *******************************************************************************/
 void user_init(void) {
+    const char *SSID = "wireless-n";
+    const char *PASSWORD = "esp8266pw";
+
     // Initialize uart
     uart_init_new();
 	printf("SDK version:%s\n", system_get_sdk_version());
@@ -136,6 +145,7 @@ void user_init(void) {
 
     wifi_station_set_config(&config);
 
+    // Set the wifi callback handler
     wifi_set_event_handler_cb(wifi_event_cb);
 }
 
