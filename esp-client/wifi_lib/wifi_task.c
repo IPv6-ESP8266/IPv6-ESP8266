@@ -11,44 +11,10 @@
 LOCAL xTaskHandle CLIENT_TASK_HANDLE;
 const char *TARGET_IPV6 = "2001:410:0:1:487d:eb0b:2fe7:a1a5";
 
-/**
- *
- * @return  true: successfull set the ipv6 address of the interface.
- *          false: otherwise
- */
-bool set_netif_ipv6_addr() {
-    struct netif *netif;
-    char *interface_name = "en0";
-
-    netif = netif_find(interface_name);
-    if (netif == NULL) {
-        os_printf("Could not find %s", interface_name);
-        return false;
-    }
-
-    bool is_up = netif_is_up(netif);
-    if (!is_up) {
-        os_printf("network interface is not up");
-        return false;
-    }
-
-    // use hwaddr  as MAC addr;
-    netif_create_ip6_linklocal_address(netif, 0);
-
-    return true;
-}
 
 LOCAL void client_task(void *arg) {
 
     vTaskDelay(2000);
-    /*
-    bool is_netif_set = set_netif_ipv6_addr();
-    if (!is_netif_set) {
-        os_printf("failed to netif");
-        goto failure;
-    }
-    */
-
     (void)arg; // unused
 
     int result;
