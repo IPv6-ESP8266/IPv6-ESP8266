@@ -1,4 +1,20 @@
 # About
+Following can be found here.
+
+- How to setup IPv6 with esp8266 without changing the FreeRTOS-SDK. [esp-client](esp-client)
+- A small example program to verify the IPv6 connection. [esp-ipv6-listener](esp-ipv6-listener)
+- How to setup an IPv6 environment with a Cisco Router.
+
+## Table of Contents
+
+- [Test Construction](#test-construction)
+- [Check of the API](#check-of-the-api)
+- [Comision](#commision)
+	- [Setting up the IPv6 environment](#setting-up-the-ipv6-environment)
+	- [Using socket-API of the LWIP](#using-socket-api-of-the-lwip)
+	- [Configuration via ICMPv6](#configuration-via-icmpv6)
+- [Monitoring and Validation](#monitoring-and-validation)
+- [Result](#result)
 
 # Test Construction
 The goal of the test construction is to observe every package in a minimal environment. 
