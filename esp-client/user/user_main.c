@@ -77,6 +77,7 @@ uint32 user_rf_cal_sector_set(void) {
 
 	return rf_cal_sec;
 }
+
 void manual_netif_setup() {
     // First find our network interface
     struct netif *interface = netif_find("en0"); 

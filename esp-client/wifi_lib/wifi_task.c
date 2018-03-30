@@ -9,7 +9,7 @@
 #define zero(S) memset(&S, 0, sizeof(S))
 
 LOCAL xTaskHandle CLIENT_TASK_HANDLE;
-const char *TARGET_IPV6 = "2001:410:0:1:487d:eb0b:2fe7:a1a5";
+const char *TARGET_IPV6 = "2001:410:0:1:2c2a:d77c:35f0:bdd9";
 
 
 LOCAL void client_task(void *arg) {
