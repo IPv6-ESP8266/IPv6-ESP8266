@@ -209,7 +209,7 @@ should happen automatically between the nodes, when a link-local address is assi
 After a successfull ICMPv6 configuration, a TCP/IPv6 connection can be established. 
 With the current setup the Cisco Router should advertise its addresses and the ESP8266 should advertise and query for neighbours.
 
-That behaviour was observed via wireshark. (Wireshark Dumps)
+That behaviour was observed via [wireshark](wireshark-dumps).
 
 To prove that the esp8266 can actually send a packet via TCP/IPv6, a connection was established 
 from ESP to a PC and a small "hello world" was packet send. The full source code and wireshark dump 
