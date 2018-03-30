@@ -1,7 +1,7 @@
 # About
-Following can be found here.
+Following can be found here:
 
-- How to setup IPv6 with esp8266 without changing the FreeRTOS-SDK. [esp-client](esp-client)
+- How to setup IPv6 with ESP8266 without changing the FreeRTOS-SDK. [esp-client](esp-client)
 - A small example program to verify the IPv6 connection. [esp-ipv6-listener](esp-ipv6-listener)
 - How to setup an IPv6 environment with a Cisco Router.
 
